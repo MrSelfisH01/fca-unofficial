@@ -160,8 +160,7 @@ function listenMqtt(defaultFuncs, api, ctx, globalCallback) {
   
     try {
       var jsonMessage = JSON.parse(message);
-      console.log(jsonMessage)
-    } catch (ex) {
+    }catch (ex) {
       return;
       //console.error("listenMqtt", "JSON conversion failed");
     }
@@ -221,6 +220,7 @@ function listenMqtt(defaultFuncs, api, ctx, globalCallback) {
 function parseDelta(defaultFuncs, api, ctx, globalCallback, v) {
   if (v.delta.class == "NewMessage") {
     //Not tested for pages
+    console.log(v.delta.attachments)
     if (ctx.globalOptions.pageID &&
       ctx.globalOptions.pageID != v.queue
     )
